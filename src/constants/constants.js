@@ -26,7 +26,7 @@ export const keypoints = [
 export const projects = [
     {
         "no": "01",
-        "category" : "Realtime Chat Application",
+        "category" : "Chat Application",
         "name": "ChatHive",
         "stack1": "React JS",
         "stack2": "Firebase",

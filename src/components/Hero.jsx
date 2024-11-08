@@ -30,7 +30,7 @@ const Hero = () => {
           <h1 className="text-center lg:text-left">NISHAD</h1>
           <h1 className="text-center ">MUHAMMED</h1>
         </div>
-        <div className="absolute -bottom-24 lg:bottom-3 lg:left-14 ">
+        <div className="absolute top-60 lg:top-70 lg:left-14 ">
           <h3 className="text-primary w-auto text-xs lg:text-sm">
             10.8057°76.1957°
           </h3>
@@ -50,13 +50,13 @@ const Hero = () => {
       </div>
 
       <div className="flex lg:px-5 justify-center lg:justify-between mt-auto items-center lg:items-end w-full">
-     <div className="flex items-center">
+     <div className=" items-center hidden lg:flex">
      <RiArrowDownDoubleFill className="text-tertiary text-lg w-full h-full" />
         <h3 className="text-[#8c8b7b] text-nowrap text-xs hidden lg:block">
 Scroll Down</h3>
      </div>
         <div className="flex flex-col lg:flex-row gap-3 items-center justify-between ">
-          <div className="bg-primary rounded-full lg:rounded-none lg:rounded-tr-lg lg:rounded-bl-lg  w-12 h-10 flex items-center justify-center">
+          <div className="bg-primary rounded-full lg:rounded-none lg:rounded-tr-lg lg:rounded-bl-lg  w-12 lg:w-12 h-12 lg:h-10 flex items-center justify-center">
             <img
               src={assets.profile}
               alt=""

@@ -26,17 +26,17 @@ const translateX = useTransform(scrollYProgress,[0,0.6,1],[-150,0,0]);
         translateX:translateX
     }}
     
-    className='border-t border-t-gray-600 flex flex-col items-center pt-10'>
+    className='border-t border-t-gray-600 flex flex-col items-center pt-10 px-5'>
       <a href={project.domain} target='_blank'>
-      <div className='h-[17rem] lg:h-[20rem] w-[17rem] lg:w-[28rem]'>
-      <img className='h-full w-full object-cover' src={project.image} alt="" />
+      <div className='h-[17rem]  lg:h-[20rem] w-full lg:w-[28rem]'>
+      <img className='h-full w-full object-cover object-left' src={project.image} alt="" />
       </div>
       <div className='flex justify-between items-start w-full text-[#8c8b7b] pt-5 font-primaryfont'>
           <div className='flex gap-6'>
               <p className='text-xs pt-1'>{project.no}</p>
               <div className='flex flex-col'>
-                  <h4 className='font-thin'>{project.name}</h4>
-                  <h2 className='text-secondary text-2xl'>{project.category}</h2>
+                  <h4 className='font-thin'>{project.category}</h4>
+                  <h2 className='text-secondary text-2xl'>{project.name}</h2>
               </div>
           </div>
           <div className='flex text-xs gap-2'>

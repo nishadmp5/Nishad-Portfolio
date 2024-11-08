@@ -28,7 +28,7 @@ const Contacts = () => {
 
   return (
     <div id='contacts' className=' p-0 mt-[135vh] lg:mt-0 overflow-x-auto'>
-      <div ref={containerRef} className='h-[71.8vh] lg:h-[63vh] w-full bg-transparent'></div>
+      <div ref={containerRef} className='h-[77vh] lg:h-[63vh] w-full bg-transparent'></div>
        <div className={`${isFixed ? "fixed bottom-0 x overflow-y-hidden z-0" : "hidden"} `}>
        <Connect/>
         <Footer/>

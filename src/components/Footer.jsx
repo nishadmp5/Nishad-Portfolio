@@ -35,11 +35,11 @@ const Footer = () => {
           onClick={() => scrollToSection('home')}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
-            className="text-white border border-tertiary rounded-lg cursor-pointer py-1.5 px-2 flex items-center"
+            className="text-white border border-tertiary rounded-lg cursor-pointer py-1.5 px-2 gap-2 flex w-[40%] lg:w-auto items-center"
           >
            
-            <RiArrowUpDoubleFill className="text-tertiary text-xl w-full h-full" />
-            <h2 className="text-nowrap text-tertiary text-[1rem] lg:hidden">Back To Top</h2>
+            <RiArrowUpDoubleFill className="text-tertiary text-2xl" />
+            <h2 className="text-nowrap text-tertiary text-[0.8rem]  lg:hidden">Back To Top</h2>
           </motion.a>
         </div>
       </div>

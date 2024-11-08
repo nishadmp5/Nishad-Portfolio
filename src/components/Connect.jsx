@@ -10,7 +10,7 @@ const Connect = () => {
     <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="bg-black border-t border-t-[#450000] cursor-pointer relative  overflow-hidden ">
      <a href="tel:+971502910064">
      <div className="absolute flex items-center top-0 left-0  w-full h-full">
-        <div className={`${isHovered ? "h-full" : "h-0"} w-full duration-1000 ease-in-out bg-gradient-to-b from-[#450000] to-[#210000]`}></div>
+        <div className={`${isHovered ? "lg:h-full" : "lg:h-0 h-full "} w-full  duration-1000 ease-in-out bg-gradient-to-b from-[#450000] to-[#210000]`}></div>
       </div>
       <motion.div
         className="whitespace-nowrap z-20 flex"
