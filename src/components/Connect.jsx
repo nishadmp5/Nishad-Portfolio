@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { TiPhone } from "react-icons/ti";
 
 const Connect = () => {
 
   const [isHovered,setIsHovered] = useState(false);
+  const [duration,setDuration] = useState(window.innerWidth > 768 ? 30000 : 300);
+
+  useEffect(()=>{
+    const handleResize = () => {
+      setDuration(window.innerWidth > 768 ? 30000 : 300)
+    }
+
+    window.addEventListener("resize",handleResize)
+
+    return () => {
+      window.removeEventListener("resize",handleResize)
+    }
+  },[])
 
   return (
     <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="bg-black border-t border-t-[#450000] cursor-pointer relative  overflow-hidden ">
-     <a href="tel:+971502910064">
+     <a href="tel:+971502910064" className="overflow-y-hidden">
      <div className="absolute flex items-center top-0 left-0  w-full h-full">
         <div className={`${isHovered ? "lg:h-full" : "lg:h-0 h-full "} w-full  duration-1000 ease-in-out bg-gradient-to-b from-[#450000] to-[#210000]`}></div>
       </div>
@@ -17,7 +30,7 @@ const Connect = () => {
         animate={{ x: [0, "-5000%"] }}
         transition={{
           repeat: Infinity,
-          duration: 30000,
+          duration: duration,
           ease: "linear",
         }}
       >

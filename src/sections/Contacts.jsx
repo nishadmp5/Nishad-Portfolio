@@ -28,8 +28,8 @@ const Contacts = () => {
 
   return (
     <div id='contacts' className=' p-0 mt-[135vh] lg:mt-0 overflow-x-auto'>
-      <div ref={containerRef} className='h-[77vh] lg:h-[63vh] w-full bg-transparent'></div>
-       <div className={`${isFixed ? "fixed bottom-0 x overflow-y-hidden z-0" : "hidden"} `}>
+      <div ref={containerRef} className='h-[80vh] lg:h-[63vh] w-full bg-transparent hidden lg:block'></div>
+       <div className={`${isFixed ? "lg:fixed bottom-0 overflow-y-hidden z-0" : "lg:hidden"} mt-6 lg:mt-0`}>
        <Connect/>
         <Footer/>
        </div>
