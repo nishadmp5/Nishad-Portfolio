@@ -51,7 +51,7 @@ const About = () => {
             setIsFixed(false)
           }
         }else{
-          if(containerTop <= 0 && containerBottom > 515){
+          if(containerTop <= 0 && containerBottom > 950){
             setIsFixed(true);
           }else{
             setIsFixed(false)
@@ -69,7 +69,7 @@ const About = () => {
 
 
   return (
-    <div id="about"  ref={containerRef} className="relative h-[400vh] bg-black">
+    <div id="about"  ref={containerRef} className="relative h-auto bg-black">
       <div
         className={`${isFixed ? "fixed" : "hidden"} top-0 left-0 w-screen bg-center h-screen bg-cover z-0`}
         style={{ backgroundImage: `url('/perception.jpg')`, }}

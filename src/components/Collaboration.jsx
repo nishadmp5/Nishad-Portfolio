@@ -12,19 +12,19 @@ const Collaboration = ({ scrollYProgress }) => {
     return window.addEventListener("resize", handleResize);
   }, []);
 
-  const scale = useTransform(scrollYProgress, [0, 0.4, 1], [1, 0.7, 0.7]);
-  const scaleinL = useTransform(scrollYProgress, [0, 0.4, 1], [1, 0.7, 0.7]);
-  const imgHeight = useTransform(scrollYProgress,[0,0.4,1],["13rem","19.2rem","19.5rem"]);
+  const scale = useTransform(scrollYProgress, [0, 0.25,0.6], [1, 0.7, 0.7]);
+  const scaleinL = useTransform(scrollYProgress, [0, 0.25, 0.5], [1, 0.7, 0.7]);
+  const imgHeight = useTransform(scrollYProgress,[0,0.25,0.6],["13rem","19.2rem","19.5rem"]);
 
   const translateY = useTransform(
     scrollYProgress,
-    [0, 0.4, 1],
-    [0, -300, -1200]
+    [0, 0.25, 0.6],
+    [0, -300, -900]
   );
   const translateYinL = useTransform(
     scrollYProgress,
-    [0, 0.4, 1],
-    [0, 0, -1500]
+    [0, 0.25, 0.6],
+    [0, 0, -800]
   );
 
   return (

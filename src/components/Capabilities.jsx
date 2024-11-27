@@ -20,16 +20,16 @@ const Capabilities = ({scrollYProgress}) => {
   },[])
 
 
-    const scale = useTransform(scrollYProgress,[0,0.8,0.9,1],[0.65,0.7,0.75,1])
-    const scaleinL = useTransform(scrollYProgress,[0,0.4,0.67,1],[0.6,0.7,0.7,1])
+    const scale = useTransform(scrollYProgress,[0,0.25,0.5,0.75,1],[0.7,0.7,0.7,0.75,1])
+    const scaleinL = useTransform(scrollYProgress,[0,0.5,0.75,1],[0.7,0.7,0.7,1])
 
     const translateY = useTransform(scrollYProgress,[0,0.4,0.67,1],[0,0,0,0])
-    const translateYinL = useTransform(scrollYProgress,[0,0.4,0.67,1],[0,0,0,812])
+    const translateYinL = useTransform(scrollYProgress,[0,0.5,0.75,1],[0,0,-200,0])
 
 
   return (
     <motion.div  style={{scale:isLargeScreen ? scaleinL : scale,
-                        translateY:isLargeScreen ? translateYinL : translateY}}  className="sticky z-20 top-0 w-full mt-[80vh] lg:mt-[100vh]  min-h-screen  bg-capabilities-gradient text-primary p-5 lg:p-10 pt-16 ">
+                        translateY:isLargeScreen ? translateYinL : translateY}}  className="sticky z-20 top-0 w-full mt-[15vh]   min-h-screen  bg-capabilities-gradient text-primary p-5 lg:p-10 pt-16 ">
         <p className='bg-primary inline-flex gap-1 items-center w-auto text-[0.68rem] text-white text-center px-2.5 py-1.5 rounded-full'><div className='bg-secondary rounded-full w-1.5 h-1.5'></div>CAPABILITIES</p>
         <h2 className='text-[1.7rem] leading-[1.2] py-4 w-full lg:w-[40%] text-tertiary'>Web development is always advancing, and <span className='text-secondary'>I stay up-to-date.</span>  Leveraging the latest frameworks and techniques helps me craft websites that are both visually <span className='text-secondary'> engaging and highly responsive.</span></h2>
         <h2 className='text-2xl'>Get in touch •)</h2>
