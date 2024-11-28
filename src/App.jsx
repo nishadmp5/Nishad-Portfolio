@@ -4,6 +4,7 @@ import Projects from "./sections/Projects";
 import SmoothScrollLayout from "./components/SmoothScrollLayout";
 import About from "./sections/About";
 import Contacts from "./sections/Contacts";
+import Resume from "./sections/Resume";
 
 const App = () => {
   
@@ -13,6 +14,7 @@ const App = () => {
       <Projects />
       <About/>
       <Contacts/>
+      <Resume/>
     </SmoothScrollLayout>
   );
 };
