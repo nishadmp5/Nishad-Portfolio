@@ -1,30 +1,49 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas,useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import assets from "../assets/assets";
 import { RiArrowDownDoubleFill } from "react-icons/ri";
 
-function Model({ url }) {
+function Model({ url,topRotation,rightRotaion }) {
     const meshRef = useRef();
   const { scene } = useGLTF(url);
   scene.scale.set(1, -1, -1);
 
-  useFrame(()=>{
-    if(meshRef.current){
-        meshRef.current.rotation.y += 0.005;
-    }
-  })
 
   return (
-    <mesh ref={meshRef} scale={[1.8,1.8,2.2]} rotation={[Math.PI/-10,0,-0.2]} position={[0,0,0]}>
+    <mesh ref={meshRef} scale={[1.8,1.8,2.2]} rotation={[Math.PI/-10,rightRotaion,topRotation*0.0025]} position={[0,0,0]}>
       <primitive object={scene} />
     </mesh>
   );
 }
 
 const Hero = () => {
+
+  const containerRef = useRef()
+  const [containerTop,setContainerTop] = useState(-100)
+  useEffect(()=>{
+    const handleScroll = () => {
+       setContainerTop(containerRef.current.getBoundingClientRect().top-100);
+    }
+    window.addEventListener("scroll",handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll",handleScroll);
+    }
+  },[])
+
+  const [rightRotation,setRightRotation] = useState(0);
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      setRightRotation((prev)=> prev+0.005)
+    },10)
+
+    return () => clearInterval(interval);
+
+  },[])
+
   return (
-    <div className="h-screen w-screen flex flex-col items-center pt-20 pb-10">
+    <div ref={containerRef} className="h-screen w-screen flex flex-col items-center pt-20 pb-10">
       <div className="mt-16 lg:mt-12 relative flex justify-center items-center w-full">
         <div className="text-secondary text-[3.4rem] lg:text-[10rem] leading-none z-10 font-primaryfont w-full lg:px-10">
           <h1 className="text-center lg:text-left">NISHAD</h1>
@@ -41,7 +60,7 @@ const Hero = () => {
             <ambientLight intensity={1} />
             <directionalLight intensity={2} />
 
-            <Model url="/n-letter.glb" />
+            <Model url="/n-letter.glb" topRotation={containerTop} rightRotaion={rightRotation} />
           </Canvas>
         </div>
         <div className="absolute flex items-center justify-center animate-spin -top-5 lg:-top-14  border-2 border-dotted border-neutral-700 rounded-full w-72 lg:w-[42rem] h-72 lg:h-[42rem]" />

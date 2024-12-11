@@ -11,7 +11,6 @@ const Contacts = () => {
   useEffect(()=>{
     const handleScroll = () => {
       const containerTop = containerRef.current.getBoundingClientRect().top ?  containerRef.current.getBoundingClientRect().top : 830;
-      console.log(containerTop);
       if(containerTop <= 820){
         setIsFixed(true);
       }else{

@@ -3,12 +3,11 @@ import Collaboration from "../components/Collaboration";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Capabilities from "../components/Capabilities";
 import { AppContext } from "../context/AppContext";
-import { log } from "three/webgpu";
 
 const About = () => {
 
     const [isFixed,setIsFixed] = useState(false);
-    const [isLargeScreen,setIsLargeScreen] = useState(window.innerWidth >= 1024);
+    // const [isLargeScreen,setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   
 
@@ -19,35 +18,56 @@ const About = () => {
       offset:["start start","end end"]
     })
 
-    useEffect(()=>{
-      const handleResize = () => setIsLargeScreen(window.innerWidth >= 1024);
-      window.addEventListener("resize",handleResize)
-      handleResize();
+    // useEffect(()=>{
+    //   const handleResize = () => setIsLargeScreen(window.innerWidth >= 1024);
+    //   window.addEventListener("resize",handleResize)
+    //   handleResize();
   
-      return () => {
-        window.removeEventListener("resize",handleResize);
-      } 
-    },[])
+    //   return () => {
+    //     window.removeEventListener("resize",handleResize);
+    //   } 
+    // },[])
   
+
+    // useEffect(()=>{
+    //   const handleScroll = () => {
+    //     const containerTop = containerRef.current.getBoundingClientRect().top;
+    //     const containerBottom = containerRef.current.getBoundingClientRect().bottom;
+    //     console.log(containerTop);
+        
+    //     if(isLargeScreen){
+    //       if(containerTop <= 0 && containerBottom > 815){
+    //         setIsFixed(true);
+    //       }else{
+    //         setIsFixed(false)
+    //       }
+    //     }else{
+    //       if(containerTop <= 0 && containerBottom > 950){
+    //         setIsFixed(true);
+    //       }else{
+    //         setIsFixed(false)
+    //       }
+    //     }
+    //   };
+
+    //   window.addEventListener("scroll",handleScroll);
+
+    //   return () => {
+    //     window.removeEventListener("scroll",handleScroll);
+    //   }
+    // },[isLargeScreen])
+    
 
     useEffect(()=>{
       const handleScroll = () => {
         const containerTop = containerRef.current.getBoundingClientRect().top;
-        const containerBottom = containerRef.current.getBoundingClientRect().bottom;
+        const containerBottom = window.innerHeight - containerRef.current.getBoundingClientRect().bottom;
         
-        if(isLargeScreen){
-          if(containerTop <= 0 && containerBottom > 815){
+          if(containerTop <= 0 && containerBottom <= 0){
             setIsFixed(true);
           }else{
             setIsFixed(false)
           }
-        }else{
-          if(containerTop <= 0 && containerBottom > 950){
-            setIsFixed(true);
-          }else{
-            setIsFixed(false)
-          }
-        }
       };
 
       window.addEventListener("scroll",handleScroll);
@@ -55,8 +75,7 @@ const About = () => {
       return () => {
         window.removeEventListener("scroll",handleScroll);
       }
-    },[isLargeScreen])
-    
+    },[])
 
 
   return (
