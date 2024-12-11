@@ -1,13 +1,13 @@
-import logo from './n-logo.png';
-import profile from './profile.jpeg'
-import uiux from './Keypoints/uiux.png';
-import component from './Keypoints/component.png';
-import react from './Keypoints/react.png';
-import responsive from './Keypoints/responsive.png';
-import chathive from './chathive.jpeg';
-import swiftsale from './swiftsale.jpeg';
-import immersix from './immersix.jpeg';
-import profileRed from './profile-red.jpeg';
+import logo from './n-logo.webp';
+import profile from './profile.webp'
+import uiux from './Keypoints/uiux.webp';
+import component from './Keypoints/component.webp';
+import react from './Keypoints/react.webp';
+import responsive from './Keypoints/responsive.webp';
+import chathive from './chathive.webp';
+import swiftsale from './swiftsale.webp';
+import immersix from './immersix.webp';
+import profileRed from './profile-red.webp';
 
 const assets = {
     logo,

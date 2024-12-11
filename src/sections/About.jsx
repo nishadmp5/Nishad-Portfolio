@@ -7,19 +7,10 @@ import { log } from "three/webgpu";
 
 const About = () => {
 
-    // const { scrollY } = useScroll();
     const [isFixed,setIsFixed] = useState(false);
     const [isLargeScreen,setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
-    // useEffect(()=>{
-    //     return scrollY.onChange((latest)=>{
-    //         if(latest>3700 && latest <5500){
-    //             setIsFixed(true);
-    //         }else{
-    //             setIsFixed(false);
-    //         }
-    //     })
-    // },[scrollY])
+  
 
     const containerRef = useRef()
 
@@ -72,7 +63,7 @@ const About = () => {
     <div id="about"  ref={containerRef} className="relative h-auto bg-black">
       <div
         className={`${isFixed ? "fixed" : "hidden"} top-0 left-0 w-screen bg-center h-screen bg-cover z-0`}
-        style={{ backgroundImage: `url('/perception.jpg')`, }}
+        style={{ backgroundImage: `url('/perception.webp')`, }}
       >
       </div>
       <div  >
