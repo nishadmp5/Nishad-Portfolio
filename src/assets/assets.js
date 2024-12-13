@@ -1,5 +1,5 @@
-import logo from './n-logo.webp';
-import profile from './profile.webp'
+import logo from './n-logo.png';
+import profile from './developer.webp'
 import uiux from './Keypoints/uiux.webp';
 import component from './Keypoints/component.webp';
 import react from './Keypoints/react.webp';

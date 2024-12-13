@@ -14,7 +14,7 @@ const Cards = ({project}) => {
         offset:["start end","end start"]
     })
 
-const opacity = useTransform(scrollYProgress, [0,0.2,1], [0,0,1]);
+const opacity = useTransform(scrollYProgress, [0,0.2,0.8,1], [0,0,1,1]);
 const translateY = useTransform(scrollYProgress,[0,0.6,1], [180,100,0]);
 const translateX = useTransform(scrollYProgress,[0,0.6,1],[-150,0,0]);
 
@@ -28,7 +28,7 @@ const translateX = useTransform(scrollYProgress,[0,0.6,1],[-150,0,0]);
     
     className='border-t border-t-gray-600 flex flex-col items-center pt-10 px-5'>
       <a href={project.domain} target='_blank'>
-      <div className='h-[17rem]  lg:h-[20rem] w-full lg:w-[28rem]'>
+      <div className='h-[17rem]  lg:h-[20rem] w-full lg:w-[35rem]'>
       <img className='h-full w-full object-cover object-left' src={project.image} alt="" />
       </div>
       <div className='flex justify-between items-start w-full text-[#8c8b7b] pt-5 font-primaryfont'>

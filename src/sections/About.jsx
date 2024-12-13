@@ -82,7 +82,7 @@ const About = () => {
     <div id="about"  ref={containerRef} className="relative h-auto bg-black">
       <div
         className={`${isFixed ? "fixed" : "hidden"} top-0 left-0 w-screen bg-center h-screen bg-cover z-0`}
-        style={{ backgroundImage: `url('/perception.webp')`, }}
+        style={{ backgroundImage: `url('/perception.png')`, }}
       >
       </div>
       <div  >

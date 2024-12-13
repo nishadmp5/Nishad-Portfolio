@@ -47,7 +47,7 @@ const Footer = () => {
       <div className="flex justify-between items-center lg:items-end text-tertiary">
         <div className="flex border-[0.1px] border-[#4a473f]">
           <div className="flex justify-center items-center border-r-[0.1px] border-[#4a473f] p-2">
-            <img className="w-8 h-8" src={assets.logo} alt="" />
+            <img className="w-12 h-12" src={assets.logo} alt="" />
           </div>
           <div className="flex flex-col items-center justify-between text-[0.7rem] font-extralight">
             <h3 className="  border-b-[0.1px] border-[#4a473f] py-1.5 px-2.5">

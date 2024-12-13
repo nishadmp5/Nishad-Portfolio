@@ -3,6 +3,7 @@ import { Canvas,useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import assets from "../assets/assets";
 import { RiArrowDownDoubleFill } from "react-icons/ri";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Model({ url,topRotation,rightRotaion }) {
     const meshRef = useRef();
@@ -42,6 +43,19 @@ const Hero = () => {
 
   },[])
 
+  const [animateArrow,setAnimateArrow] = useState(false);
+  const [renderKey, setRenderKey] = useState(0);
+
+
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      setAnimateArrow((prev)=> !prev);
+      setRenderKey((prevKey) => prevKey + 1);
+    },2000)
+
+    return () => clearInterval(interval);
+  },[])
+
   return (
     <div ref={containerRef} className="h-screen w-screen flex flex-col items-center pt-20 pb-10">
       <div className="mt-16 lg:mt-12 relative flex justify-center items-center w-full">
@@ -69,24 +83,63 @@ const Hero = () => {
       </div>
 
       <div className="flex lg:px-5 justify-center lg:justify-between mt-auto items-center lg:items-end w-full">
-     <div className=" items-center hidden lg:flex">
-     <RiArrowDownDoubleFill className="text-tertiary text-lg w-full h-full" />
-        <h3 className="text-[#8c8b7b] text-nowrap text-xs hidden lg:block">
+     <div className=" items-center overflow-hidden hidden lg:flex">
+
+      <div className="w-4 relative">
+     <div className="absolute -top-2">
+     <AnimatePresence>
+        
+        {animateArrow && (
+           <motion.div 
+           transition={{duration:0.5,ease:"easeInOut"}}
+           key={renderKey}
+           initial={{y:-10,opacity:0}}
+           animate={{ y: 0, opacity: 1 }}
+           exit={{y:10,opacity:0}}
+           >
+           <RiArrowDownDoubleFill className="text-tertiary text-lg w-full h-full" />
+           </motion.div>
+        )}
+      </AnimatePresence>
+     </div>
+
+     <div className="absolute -top-2">
+     <AnimatePresence>
+        
+        {animateArrow && (
+           <motion.div 
+           transition={{duration:0.5,ease:"easeInOut"}}
+           key={renderKey}
+           initial={{y:-10,opacity:0}}
+           animate={{ y: 0, opacity: 1 }}
+           exit={{y:10,opacity:0}}
+           >
+           <RiArrowDownDoubleFill className="text-tertiary text-lg w-full h-full" />
+           </motion.div>
+        )}
+      </AnimatePresence>
+     </div>
+      
+      </div>
+     
+        <h3  className="text-[#8c8b7b] text-nowrap text-xs hidden lg:block">
 Scroll Down</h3>
      </div>
+
         <div className="flex flex-col lg:flex-row gap-3 items-center justify-between ">
-          <div className="bg-primary rounded-full lg:rounded-none lg:rounded-tr-lg lg:rounded-bl-lg  w-12 lg:w-12 h-12 lg:h-10 flex items-center justify-center">
+          <div className="bg-primary overflow-hidden rounded-full lg:rounded-none lg:rounded-tr-lg lg:rounded-bl-lg  w-12 lg:w-12 h-12 lg:h-10 flex items-center justify-center">
             <img
               src={assets.profile}
               alt=""
-              className="w-10 h-10 rounded-full"
+              className="w-full h-full scale-150 "
             />
           </div>
           <h2 className="text-secondary text-md text-center lg:text-left">
-            Dynamic Frontend Developer <br /> & UI Specialist
+            Dynamic Frontend Developer
           </h2>
         </div>
       </div>
+
     </div>
   );
 };
